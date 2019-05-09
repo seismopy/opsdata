@@ -1,15 +1,20 @@
 # !/usr/bin/env python
 
 from distutils.core import setup
+
+
+requirements = open('requirements.txt').read()
+
 setup(
     name='opsdata_template',
     packages=[],
     version='0.1.0',
-    description='Cookiecutter template for a Python package',
-    author='Audrey Roy Greenfeld',
+    description='an obsplus dataset template',
+    author='Derrick Chambers',
     license='BSD',
-    author_email='aroy@alum.mit.edu',
-    url='https://github.com/audreyr/cookiecutter-pypackage',
+    author_email='djachambeador@gmail.com',
+    requirements=requirements,
+    url='https://github.com/seismopy/opsdata',
     keywords=['cookiecutter', 'template', 'package', ],
     classifiers=[
         'Development Status :: 4 - Beta',

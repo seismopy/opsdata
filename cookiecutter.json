@@ -1,9 +1,8 @@
 {
-    "full_name": "null",
-    "email": "null",
-    "github_username": "null",
-    "dataset_name": "null",
-    "dataset_description": "An obsplus dataset",
-    "pypi_username": "{{ cookiecutter.github_username }}",
+    "full_name": null,
+    "email": null,
+    "github_username": null,
+    "dataset_name": null,
+    "dataset_description": null,
     "version": "0.1.0"
 }

@@ -10,3 +10,5 @@ import pytest
 def project_path():
     """ return the path to opsdata_template directory, """
     return Path(__file__).parent.parent
+
+

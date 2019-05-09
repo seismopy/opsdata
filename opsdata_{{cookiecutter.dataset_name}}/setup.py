@@ -36,6 +36,7 @@ setup(
         'Programming Language :: Python :: 3.7',
     ],
     description="{{ cookiecutter.dataset_description }}",
+    long_description=open('README.md').read(),
     entry_points={
         'obsplus.datasets': [
             '{{ cookiecutter.dataset_name }}=opsdata_{{ cookiecutter.dataset_name }}.core',

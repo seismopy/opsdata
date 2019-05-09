@@ -36,7 +36,7 @@ def clients(dataset):
 
 def test_dataset(dataset):
     """ A simple tests to make sure the data have been loaded. """
-    assert Path(dataset.__path__).exists()
+    assert Path(dataset.path).exists()
 
 
 def test_return_clients(clients):
