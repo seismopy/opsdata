@@ -8,7 +8,6 @@ from pathlib import Path
 
 import obsplus
 import pytest
-from cookiecutter.main import cookiecutter
 from obsplus.interfaces import EventClient, WaveformClient, StationClient
 
 CLIENT_TYPE = {'waveform': WaveformClient, 'event': EventClient,

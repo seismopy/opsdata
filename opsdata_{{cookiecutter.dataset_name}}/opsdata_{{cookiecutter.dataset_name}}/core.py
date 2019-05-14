@@ -1,8 +1,8 @@
 """
 ObsPlus instructions for downloading dataset.
 """
-import obsplus
 from pathlib import Path
+
 from obsplus import DataSet
 
 
@@ -11,6 +11,7 @@ class {{ cookiecutter.dataset_name.capitalize() }}(DataSet):
     {{ cookiecutter.dataset_description }}
     """
     name = "{{ cookiecutter.dataset_name }}"
+    base_path = Path(__file__).parent
 
     # --- functions used to specify how data are downloaded
 
