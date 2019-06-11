@@ -5,6 +5,8 @@ from pathlib import Path
 
 from obsplus import DataSet
 
+from opsdata_{{ cookiecutter.dataset_name }}.version import __version__
+
 
 class {{ cookiecutter.dataset_name.capitalize() }}(DataSet):
     """
@@ -12,6 +14,7 @@ class {{ cookiecutter.dataset_name.capitalize() }}(DataSet):
     """
     name = "{{ cookiecutter.dataset_name }}"
     base_path = Path(__file__).parent
+    version = __version__
 
     # --- functions used to specify how data are downloaded
 
