@@ -37,6 +37,7 @@ setup(
     ],
     description="{{ cookiecutter.dataset_description }}",
     long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
     entry_points={
         'obsplus.datasets': [
             '{{ cookiecutter.dataset_name }}=opsdata_{{ cookiecutter.dataset_name }}.core',
