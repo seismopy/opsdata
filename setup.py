@@ -8,7 +8,7 @@ requirements = open("requirements.txt").read()
 setup(
     name="opsdata_template",
     packages=[],
-    version="0.1.0",
+    version="0.1.1",
     description="an obsplus dataset template",
     author="Derrick Chambers",
     license="BSD",
