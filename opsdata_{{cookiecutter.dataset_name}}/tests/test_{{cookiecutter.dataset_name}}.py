@@ -10,11 +10,14 @@ import obsplus
 import pytest
 from obsplus.interfaces import EventClient, WaveformClient, StationClient
 
-CLIENT_TYPE = {'waveform': WaveformClient, 'event': EventClient,
-               'station': StationClient}
+CLIENT_TYPE = {
+    "waveform": WaveformClient,
+    "event": EventClient,
+    "station": StationClient,
+}
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def dataset():
     """
     Load the new dataset via obsplus plugin.
@@ -22,7 +25,7 @@ def dataset():
     return obsplus.load_dataset("{{ cookiecutter.dataset_name }}")
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def clients(dataset):
     """ return a dict of clients. """
     clients = dict(
