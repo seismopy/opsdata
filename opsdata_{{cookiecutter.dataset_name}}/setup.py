@@ -13,13 +13,25 @@ if sys.version_info.major < 3:
 
 # get path references
 here = Path(__file__).absolute().parent
-version_file = here / "opsdata_{{ cookiecutter.dataset_name }}" / "version.py"
+pkg_path = here / "opsdata_{{ cookiecutter.dataset_name }}"
+version_file = pkg_path / "version.py"
 
 
 # --- get version
 with version_file.open() as fi:
     content = fi.read().split("=")[-1].strip()
     __version__ = content.replace('"', "").replace("'", "")
+
+
+def find_packages():
+    """ find packages """
+    out = []
+    relative_pkg_path = pkg_path.relative_to(here)
+    for fi in relative_pkg_path.rglob('*'):
+        if fi.is_dir() and (fi / "__init__.py").exists():
+            out.append(str(fi))
+    out.append(str(relative_pkg_path))
+    return out
 
 
 # get requirements
@@ -50,7 +62,7 @@ setup(
     license="BSD",
     include_package_data=True,
     name="opsdata_{{ cookiecutter.dataset_name }}",
-    packages=find_packages(include=["ops_dataset{{ cookiecutter.dataset_name }}"]),
+    packages=find_packages(),
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.dataset_name }}",
