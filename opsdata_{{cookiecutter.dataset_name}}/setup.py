@@ -2,9 +2,10 @@
 The setup script for the dataset.
 """
 import sys
+from collections import defaultdict
 from pathlib import Path
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 # make sure python 3 is running
 if sys.version_info.major < 3:
@@ -27,14 +28,30 @@ def find_packages():
     """ find packages """
     out = []
     relative_pkg_path = pkg_path.relative_to(here)
-    for fi in relative_pkg_path.rglob('*'):
+    for fi in relative_pkg_path.rglob("*"):
         if fi.is_dir() and (fi / "__init__.py").exists():
             out.append(str(fi))
     out.append(str(relative_pkg_path))
     return out
 
 
+def get_package_data_files():
+    """ Gets data """
+
+    data = (
+        Path("opsdata_{{ cookiecutter.dataset_name }}")
+        / "{{ cookiecutter.dataset_name }}"
+    )
+    out = {}
+    for path in data.rglob("*"):
+        files = [str(fi) for fi in path.glob("*") if not fi.is_dir()]
+        if files:
+            out[str(path)] = files
+    return list(out.items())
+
+
 # get requirements
+
 requirements = open("requirements.txt")
 test_requirements = open("tests/requirements.txt")
 
@@ -59,6 +76,7 @@ setup(
         ]
     },
     install_requires=requirements,
+    data_files=get_package_data_files(),
     license="BSD",
     include_package_data=True,
     name="opsdata_{{ cookiecutter.dataset_name }}",
