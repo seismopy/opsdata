@@ -1,4 +1,4 @@
-obsplus
+obsplus>=0.0.2
 twine
 wheel
 pytest

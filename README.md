@@ -1,8 +1,8 @@
 # opsdata
 
-This is a template for creating ObsPlus datasets. It allows you to share
-datasets, or instructions to download datasets, with others simply and easily.
-Without much effort you can even make them pip-installable.
+This is a template for creating [ObsPlus](www.github.com/niosh-mining/obsplus)
+datasets. It allows you to share datasets, or instructions for downloading datasets,
+with others simply and easily. Without much effort you can even make them pip-installable.
 
 In order to proceed you need to first download cookiecutter:
 

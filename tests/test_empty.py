@@ -109,7 +109,7 @@ class TestDataset:
     @pytest.fixture(scope="class")
     def installed_path(self, pip_installed_dataset):
         """ return the installed path of the new dataset. """
-        cmd1 = f'import obsplus; ds = obsplus.load_dataset("{NAME}"); ' "print(ds.path)"
+        cmd1 = f'import obsplus; ds = obsplus.load_dataset("{NAME}"); ' "print(ds.data_path)"
         cmd = f"python -c '{cmd1}'"
         # if this doesn't raise the dataset is discoverable
         result = run(split(cmd), check=True, stdout=PIPE)
