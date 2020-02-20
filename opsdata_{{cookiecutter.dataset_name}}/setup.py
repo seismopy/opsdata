@@ -2,7 +2,6 @@
 The setup script for the dataset.
 """
 import sys
-from collections import defaultdict
 from pathlib import Path
 
 from setuptools import setup
@@ -36,8 +35,7 @@ def find_packages():
 
 
 def get_package_data_files():
-    """ Gets data """
-
+    """ Return list of [(data directory, [data_file, ...]), ...] """
     data = (
         Path("opsdata_{{ cookiecutter.dataset_name }}")
         / "{{ cookiecutter.dataset_name }}"
@@ -51,14 +49,13 @@ def get_package_data_files():
 
 
 # get requirements
-
 requirements = open("requirements.txt")
 test_requirements = open("tests/requirements.txt")
 
 license_classifiers = {"BSD license": "License :: OSI Approved :: BSD License"}
 
 setup(
-    author="{{ cookiecutter.full_name.replace('\"', '\\\"') }}",
+    author="{{ cookiecutter.author_name.replace('\"', '\\\"') }}",
     author_email="{{ cookiecutter.email }}",
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
@@ -83,7 +80,7 @@ setup(
     packages=find_packages(),
     test_suite="tests",
     tests_require=test_requirements,
-    url="https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.dataset_name }}",
+    url="{{ cookiecutter.project_url }}",
     version=__version__,
     zip_safe=False,
 )

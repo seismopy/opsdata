@@ -1,8 +1,8 @@
 {
-    "full_name": null,
+    "author_name": null,
     "email": null,
-    "github_username": null,
     "dataset_name": null,
+    "project_url": null,
     "dataset_description": null,
     "version": "0.1.0"
 }
