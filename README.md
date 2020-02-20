@@ -93,6 +93,8 @@ Shokrgozar, A., & Mashal, M. (2019, April). The Mw 5.3 Sulphur Peak Earthquake i
 Springs, Idaho: Perspectives from Earthquake Engineering. In Structures Congress (pp. 306-320).
 ```
 
+You may also want to ensure the default licence (BSD) is adequate for you data. 
+
 ## Set 4: Create Download Methods
 
 Next we need to create the code which will download the data. This dataset logic

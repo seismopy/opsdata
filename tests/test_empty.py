@@ -7,6 +7,7 @@ from subprocess import run, PIPE
 
 import pytest
 from click.testing import CliRunner
+from cookiecutter.main import cookiecutter
 
 runner = CliRunner()
 
@@ -26,6 +27,10 @@ abbreviations:
     gh: https://github.com
     bb: https://bitbucket.org
 """
+
+
+breakpoint()
+cookiecutter('/media/data/Gits/opsdata')
 
 
 def _path_to_waveform_file(path):
