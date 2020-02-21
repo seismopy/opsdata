@@ -1,7 +1,9 @@
 # OpsData
 
-This is the template for creating [ObsPlus](www.github.com/niosh-mining/obsplus)
-datasets. It allows you easily create, distribute, and version datasets. 
+This is the template for creating 
+[datasets](https://niosh-mining.github.io/obsplus/versions/latest/notebooks/datasets/datasets.html)
+using [ObsPlus](www.github.com/niosh-mining/obsplus). Datasets can easily be created, discovered,
+and distributed. 
 
 [Installing Datasets](docs/install_dataset.md)
 
