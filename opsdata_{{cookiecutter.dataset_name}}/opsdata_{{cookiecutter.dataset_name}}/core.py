@@ -5,7 +5,7 @@ from pathlib import Path
 
 import obsplus
 
-from opsdata_{{ cookiecutter.dataset_name }}.version import __version__, source_path
+from opsdata_{{ cookiecutter.dataset_name }} import __version__, source_path
 
 
 class {{ cookiecutter.dataset_name.capitalize() }}(obsplus.DataSet):

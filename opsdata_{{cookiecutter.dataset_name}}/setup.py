@@ -45,6 +45,8 @@ def get_package_data_files():
         files = [str(fi) for fi in path.glob("*") if not fi.is_dir()]
         if files:
             out[str(path)] = files
+    # include license
+    out['.'] = ['LICENSE', ]
     return list(out.items())
 
 

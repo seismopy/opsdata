@@ -16,21 +16,16 @@ NAME = "testdataset"
 
 CONFIG_STR = """
 default_context:
-    full_name: "{full_name}"
+    author_name: "{author_name}"
     email: "{email}"
-    github_username: "{github_username}"
     dataset_name: "{dataset_name}"
+    project_url: "{project_url}"
     dataset_description: "{dataset_description}"
-    pypi_username: "{pypi_username}"
     version: "0.1.0"
 abbreviations:
     gh: https://github.com
     bb: https://bitbucket.org
 """
-
-
-breakpoint()
-cookiecutter('/media/data/Gits/opsdata')
 
 
 def _path_to_waveform_file(path):
@@ -46,12 +41,11 @@ def _path_to_event_file(path):
 def _make_config_files(path, **kwargs):
     """ Make a config file and save it to path. """
     defaults = dict(
-        full_name="Bob Ham",
+        author_name="Bob Ham",
         email="example@gmail.com",
-        github_username="bobh",
         dataset_name=NAME,
+        project_url=f"https://github.com/bob-h/{NAME}",
         dataset_description="A cool dataset for sure",
-        pypi_username="BoH",
         version="0.1.0",
     )
     defaults.update(kwargs)
@@ -81,14 +75,12 @@ def new_dataset_default(temp_dirs, project_path):
         f"--config-file {config_path} --no-input"
     )
     run(split(cmd), check=True)
-
     # path to newly created package
     path = out_path / ("opsdata_" + NAME)
-
     # a simple file, and then a really nested file
-    data_path = path / path.name / NAME
-    simple_data = _path_to_waveform_file(data_path)
-    nested_file = _path_to_event_file(data_path)
+    source_path = path / path.name / NAME
+    simple_data = _path_to_waveform_file(source_path)
+    nested_file = _path_to_event_file(source_path)
     # create data directories and files
     simple_data.parent.mkdir(exist_ok=True, parents=True)
     with simple_data.open("w") as fi:

@@ -1,0 +1,35 @@
+name: validate
+on: [push]
+
+jobs:
+  # Runs the tests on combinations of the supported python/os matrix.
+  test_code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup conda
+        uses: goanpeca/setup-miniconda@v1
+        with:
+          miniconda-version: 'latest'
+          python-version: 3.7
+          activate-environment: test
+          environment-file: .github/test_conda_env.yml
+          condarc-file: .github/test_condarc.yml
+
+      - name: install obsplus
+        shell: bash -l {0}
+        run: |
+          pip install obsplus
+
+      - name: print package info
+        shell: bash -l {0}
+        run: |
+          conda info -a
+          conda list
+
+      - name: run test suite
+        shell: bash -l {0}
+        run: |
+          pytest tests
